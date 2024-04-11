@@ -3,20 +3,25 @@ body {
     color: maroon;
     font-family: Arial;
     margin: 0px;
+    height: 2000px;
 }
-
 footer {
     background-color: palevioletred;
     font-style: italic;
     text-align: right;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
-    width: 100%;
+    width: 99%;
     height: 50px;
     padding: 10px;
     transition: all 0.3s;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
-
+main {
+    margin: 10px 20px 45px;
+}
 header {
     background-color: palevioletred;
     font-size: 14pt;
@@ -67,4 +72,14 @@ a:hover {
 a:active {
     color: pink;
     background-color: blueviolet;
+}
+div.Menu {
+    border: 7px solid blueviolet;
+    border-radius: 5px;
+    width: 300px;
+    margin: 20px auto;
+}
+div.Menu:hover {
+    box-shadow: 0 0 15px rgb(41, 23, 203);
+    background-color: palevioletred;
 }
