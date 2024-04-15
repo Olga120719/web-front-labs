@@ -11,15 +11,13 @@
                 align-items: center;
                 height: 650px;
                 margin: 0;
-                z-index: 1;
-                position: relative; /* Добавлено */
+                position: relative; 
             }
             .oval {
                 border-radius: 50%;
                 background-color: #f1f1f1;
                 box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-                z-index: 2;
-                position: absolute; /* Изменено */
+                position: absolute; 
             }
             .oval:nth-child(1) {
                 width: 80px;
@@ -50,8 +48,12 @@
             }
             img {
                 width: 50%;
-                position: relative; /* Добавлено */
+                position: relative; 
             }
+            img.hover.oval {
+                opacity: 0;
+            }
+
         </style>
     </head>
 
