@@ -16,6 +16,30 @@
                 let result = a + b;
                 alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
             }
+            function showDifference() {
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a - b;
+                alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+            }
+            function showMultiplication() {
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a * b;
+                alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+            }
+            function showDivision() {
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a / b;
+                alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+            }
             function showAuthor() {
                 let autor = 'Автор страницы:\nЦой Ольга Дмитриевна';
                 alert(autor);
@@ -41,6 +65,19 @@
                 box-shadow: 5px 5px 10px rgba(70, 35, 115, 0.7);
                 cursor: pointer;
             }
+            .x {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            .c {
+                background-color: rgb(223, 140, 224);
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(70, 35, 115, 0.7);
+            }
         </style>
     </head>
 
@@ -50,9 +87,16 @@
         </header>
 
         <main> 
-           <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
-           <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+           <div class="x">
+                <div class="c">
+                    <label>Первое число: <input type="number" id="numberA"></label><br>
+                    <label>Второе число: <input type="number" id="numberB"></label><br>
+                </div>
+           </div>
            <div class="message" onclick="showSum()">Найти Сумму чисел</div>
+           <div class="message" onclick="showDifference()">Найти Разность чисел</div>
+           <div class="message" onclick="showMultiplication()">Найти Произведение чисел</div>
+           <div class="message" onclick="showDivision()">Найти Частное чисел</div>
            <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         </main>
 
