@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Цой Ольга Дмитриевна. Лабораторная 4</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-32x32.png">
+        <link rel="icon" href="favicon-16x16.png">
+        <style>
+            .block {
+                width: 250px;
+                height: 300px;
+                border: 5px solid;
+                border-radius: 10px;
+                display: inline-block;
+                vertical-align: top;
+                background-color: rgb(223, 140, 224);
+                padding: 10px;
+                margin: 20px;
+                color: rgb(81, 15, 78);
+                text-align: center;
+                box-shadow: 5px 5px 10px rgba(70, 35, 115, 0.7);
+            }
+            #output {
+                    margin-left: 8px;
+                }
+        </style>
+        <script>
+                function calculateTotal() {
+                let inputA = document.getElementById('numberA');
+                let inputB = document.getElementById('numberB');
+                let inputC = document.getElementById('numberC');
+                let inputD = document.getElementById('numberD');
+                let inputE = document.getElementById('numberE');
+
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let c = parseInt(inputC.value);
+                let d = parseInt(inputD.value);
+                let e = parseInt(inputE.value);
+
+                let result = a * 50 + b * 20 + c *70 + d * 150 + e * 200;
+                changeOutput(result);
+            }
+
+            function changeOutput(g) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Итого: ' + g + 'р';
+
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>НГТУ, ФБ, Лабораторная работа №5</h1>
+        </header>
+        <main>
+            <form class="block">
+                <div style="font-size: 30px;">Корзина товаров</div>
+                <div class="item">
+                    <label for="item1">Бананы (50руб/шт)</label>
+                    <input type="number" id="numberA" min="0" placeholder="Введите количество">
+                </div>
+                <div class="item">
+                    <label for="item2">Груши (20руб/шт)</label>
+                    <input type="number" id="numberB" min="0" placeholder="Введите количество">
+                </div>
+                <div class="item">
+                    <label for="item3">Киви (70руб/шт)</label>
+                    <input type="number" id="numberC" min="0" placeholder="Введите количество">
+                </div>
+                <div class="item">
+                    <label for="item4">Авокадо (150руб/шт)</label>
+                    <input type="number" id="numberD" min="0" placeholder="Введите количество">
+                </div>
+                <div class="item">
+                    <label for="item5">Арбуз (200руб/шт)</label>
+                    <input type="number" id="numberE" min="0" placeholder="Введите количество">
+                </div>
+                <div>
+                    <input type="button" value="Рассчитать" onclick="calculateTotal('Итого:')">
+                    <input type="reset" value="Очистить">
+               </div>
+
+               <div id="output"></div>
+            </form>
+        </main>
+        <footer>
+            &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+        </footer>
+    </body>
+</html>
