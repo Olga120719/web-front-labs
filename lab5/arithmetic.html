@@ -48,6 +48,13 @@
                 let text = 'Добро пожаловать на страницу!\nНикогда не сдавайся!';
                 alert(text);
             }
+            function changeOutput(buttonNum, backColor, textColor, boxShadow, borderRadius) {
+                let output = document.getElementById('output');
+                output.innerHTML = 'Нажата кнопка' + buttonNum;
+                output.style.backgroundColor = backColor;
+                output.style.color = textColor;
+                output.style.borderRadius = borderRadius;
+            }
         </script>
         <style>
             .message {
@@ -78,6 +85,12 @@
                 text-align: center;
                 box-shadow: 0 4px 6px rgba(70, 35, 115, 0.7);
             }
+            #output {
+                width: 300px;
+                height: 40px;
+                border: 1px solid;
+            }
+            
         </style>
     </head>
 
@@ -98,6 +111,15 @@
            <div class="message" onclick="showMultiplication()">Найти Произведение чисел</div>
            <div class="message" onclick="showDivision()">Найти Частное чисел</div>
            <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+
+           <div>
+                <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'green', 'purple', '10')">
+                <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'red', 'black', '20')">
+                <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'purple', 'yellow')">
+                <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue', 'white')">
+           </div>
+
+           <div id="output"></div>
         </main>
 
         <footer ondblclick="showText()">
