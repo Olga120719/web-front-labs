@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Цой Ольга Дмитриевна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png">
+    <link rel="icon" href="favicon-16x16.png">
+    <script>
+        function applyFilter(filter, value) {
+            document.getElementById(filter + 'Output').innerText = value;
+            document.getElementById('filterImage').style.filter = filter + '(' + value + ')';
+        }
+
+        function blurChange() {
+            let value = document.getElementById('blurValue').value + 'px';
+            applyFilter('blur', value);
+        }
+
+        function grayscaleChange() {
+            let value = document.getElementById('grayscaleValue').value;
+            applyFilter('grayscale', value);
+        }
+
+        function brightnessChange() {
+            let value = document.getElementById('brightnessValue').value;
+            applyFilter('brightness', value);
+        }
+
+        function contrastChange() {
+            let value = document.getElementById('contrastValue').value;
+            applyFilter('contrast', value);
+        }
+
+        function hueRotateChange() {
+            let value = document.getElementById('hueRotateValue').value + 'deg';
+            applyFilter('hue-rotate', value);
+        }
+
+        function invertChange() {
+            let value = document.getElementById('invertValue').value + '%';
+            applyFilter('invert', value);
+        }
+
+        function saturateChange() {
+            let value = document.getElementById('saturateValue').value + '%';
+            applyFilter('saturate', value);
+        }
+
+        function sepiaChange() {
+            let value = document.getElementById('sepiaValue').value + '%';
+            applyFilter('sepia', value);
+        }
+    </script>
+    
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .filters {
+            width: 250px;
+            border: 2px solid;
+            border-radius: 10px;
+            background-color: rgb(223, 140, 224);
+            padding: 10px;
+            color: rgb(81, 15, 78);
+            text-align: center;
+            margin-left: 100px;
+            margin-top: 150px;
+            box-shadow: 5px 5px 10px rgba(70, 35, 115, 0.7);
+        }
+
+        .photo {
+            display: flex;
+            height: 700px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>НГТУ, ФБ, Лабораторная работа №5</h1>
+</header>
+
+<main>
+    <div class="container">
+        <div class="filters">
+            <div>
+                Фильтр blur:<br>
+                <input type="range" min="0" max="20" value="0" onchange="blurChange()" id="blurValue">
+                <span id="blurOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр grayscale:<br>
+                <input type="range" min="0" max="100" value="0" onchange="grayscaleChange()" id="grayscaleValue">
+                <span id="grayscaleOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр brightness:<br>
+                <input type="range" min="0" max="200" value="100" onchange="brightnessChange()" id="brightnessValue">
+                <span id="brightnessOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр contrast:<br>
+                <input type="range" min="0" max="200" value="100" onchange="contrastChange()" id="contrastValue">
+                <span id="contrastOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр hue-rotate:<br>
+                <input type="range" min="0" max="360" value="0" onchange="hueRotateChange()" id="hueRotateValue">
+                <span id="hueRotateOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр invert:<br>
+                <input type="range" min="0" max="100" value="0" onchange="invertChange()" id="invertValue">
+                <span id="invertOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр saturate:<br>
+                <input type="range" min="0" max="500" value="100" onchange="saturateChange()" id="saturateValue">
+                <span id="saturateOutput"></span>
+            </div>
+    
+            <div>
+                Фильтр sepia:<br>
+                <input type="range" min="0" max="100" value="0" onchange="sepiaChange()" id="sepiaValue">
+                <span id="sepiaOutput"></span>
+            </div>
+        </div>
+        <div class="photo"><img src="https://cs14.pikabu.ru/post_img/big/2023/08/31/4/1693457161129179736.jpg" id="filterImage" style="transform: scale(0.7);"></div>
+    </div>
+</main>
+
+<footer>
+    &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+</footer>
+</body>
+</html>
