@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение цвета блока</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png">
+    <link rel="icon" href="favicon-16x16.png">
+    <style>
+        #colorBlock {
+            width: 200px;
+            height: 200px;
+            border: 2px solid;
+            border-radius: 10px;
+            margin: auto;
+            padding: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 24px;
+            text-align: center;
+            line-height: 200px;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>НГТУ, ФБ, Лабораторная работа №6</h1>
+    </header>
+    <div id="colorBlock" ondblclick="changeColor()">Черный</div>
+
+    <script>
+        const colors = ['Красный', 'Оранжевый', 'Желтый', 'Зеленый', 'Голубой', 'Синий', 'Фиолетовый'];
+        const hexColors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#00FFFF', '#0000FF', '#800080'];
+        const fontColors = ['#FFFFFF', '#000000', '#000000', '#FFFFFF', '#000000', '#FFFFFF', '#FFFFFF'];
+        let currentColorIndex = 0;
+
+        function changeColor() {
+            const colorBlock = document.getElementById('colorBlock');
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            colorBlock.style.backgroundColor = hexColors[currentColorIndex];
+            colorBlock.style.color = fontColors[currentColorIndex];
+            colorBlock.textContent = colors[currentColorIndex];
+        }
+    </script>
+    <footer>
+        &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
