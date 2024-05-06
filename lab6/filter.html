@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+        <title>Цой Ольга Дмитриевна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-32x32.png">
+        <link rel="icon" href="favicon-16x16.png">
+    <style>
+        img {
+            max-width: 200px;
+            max-height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>НГТУ, ФБ, Лабораторная работа №6</h1>
+    </header>
+
+    <h1>Выберите цвет и тип одежды:</h1>
+    <label>Цвет:</label>
+    <select id="color">
+        <option value="red">Красный</option>
+        <option value="white">Белый</option>
+        <option value="black">Черный</option>
+    </select>
+    <br>
+    <label>Тип одежды:</label>
+    <select id="type">
+        <option value="tshirt">Футболка</option>
+        <option value="polo">Поло</option>
+        <option value="tank">Майка</option>
+    </select>
+    <br>
+    <button id="filterBtn">OK</button>
+    <br><br>
+    <img id="red-tshirt" src="https://www.abscolor.ru/wp-content/webpc-passthru.php?src=https://www.abscolor.ru/wp-content/uploads/2022/06/587104-th-img.jpg&nocache=1" alt="Красная футболка">
+    <img id="white-tshirt" src="https://barmariska.ru/wp-content/uploads/2022/02/FZH-B0527-belyj-1.jpg" alt="Белая футболка">
+    <img id="black-tshirt" src="https://files.gifts.ru/reviewer/tb/53/71170.30_27_500.jpg" alt="Черная футболка">
+    <img id="red-polo" src="https://a.lmcdn.ru/img600x866/G/A/GA121EMBCG11_1.jpg" alt="Красное поло">
+    <img id="white-polo" src="https://roba.pro/upload/iblock/f7c/g060ojkrss2tyoe8e62ylmniafvbs8pb/0328.jpg" alt="Белое поло">
+    <img id="black-polo" src="https://photo-to.ru/image/catalog/black2.jpg" alt="Черное поло">
+    <img id="red-tank" src="https://www.1001futbolka.ru/image/cache/prog111/107429-1000x1340.jpg" alt="Красная майка">
+    <img id="white-tank" src="https://postelka.ru/image/cache/stock/7951/57802/57803_g1-1000x1000.jpeg" alt="Белая майка">
+    <img id="black-tank" src="https://lh4.googleusercontent.com/proxy/-Yghfg1dSJynIsYEF8n7T5rGOVOqxvt65HHTJKLB19EjWorfaIH8XU94uZhxTq5MJ2oqJHglhp9icEGD36_mtFoH7fyXMEH7NMJxcfF1rqhAr3eTxx2awfsFs47iRI7rpevLxeg" alt="Черная майка">
+
+    <script>
+        const filterBtn = document.getElementById('filterBtn');
+        const images = document.querySelectorAll('img');
+
+        filterBtn.addEventListener('click', filter);
+
+        function filter() {
+            const color = document.getElementById('color').value;
+            const type = document.getElementById('type').value;
+            const id = `${color}-${type}`;
+
+            images.forEach(img => {
+                if (img.id === id) {
+                    img.style.display = 'inline';
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <footer>
+        &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
