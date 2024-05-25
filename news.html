@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости - ЗИРААТ БАНК (МОСКВА) АО</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ziraat Bank > Новости</h1>
+    </header>
+    <div class="menu">
+        <ul>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="currency.html">Курс валют</a></li>
+            <li><a href="contact.html">Контактные данные</a></li>
+            <li><a href="video.html">Видео</a></li>
+        </ul>
+    </div>
+    <div class="news-container" style="padding-left: 220px">
+        <div class="news-card">
+            <p class="news-date">21 мая 2024</p>
+            <h2 class="news-title">Открытие нового отделения в центре Москвы</h2>
+            <p class="news-content">Сегодня мы с радостью объявляем о запуске нового отделения банка в самом центре Москвы...</p>
+            <button onclick="showFullNews(1)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">25 мая 2024</p>
+            <h2 class="news-title">Обновление условий кредитования</h2>
+            <p class="news-content">Банк анонсирует изменения в условиях предоставления кредитов для физических лиц...</p>
+            <button onclick="showFullNews(2)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">28 мая 2024</p>
+            <h2 class="news-title">Партнерство с крупной финансовой компанией</h2>
+            <p class="news-content">ЗИРААТ БАНК (МОСКВА) АО заключает стратегическое партнерство с одной из ведущих финансовых компаний...</p>
+            <button onclick="showFullNews(3)">Показать</button>
+        </div>
+
+        <div class="news-card">
+            <p class="news-date">30 мая 2024</p>
+            <h2 class="news-title">ЗИРААТ БАНК (МОСКВА) АО отмечает 10-летие</h2>
+            <p class="news-content">Банк отмечает свое 10-летие успешной работы на финансовом рынке России...</p>
+            <button onclick="showFullNews(4)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">2 июня 2024</p>
+            <h2 class="news-title">Запуск онлайн-сервиса платежей</h2>
+            <p class="news-content">Теперь клиенты банка могут совершать платежи онлайн с помощью удобного и безопасного сервиса...</p>
+            <button onclick="showFullNews(5)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">5 июня 2024</p>
+            <h2 class="news-title">Повышение процентной ставки по депозитам</h2>
+            <p class="news-content">Банк объявляет о повышении процентных ставок по депозитам для физических лиц с 1 июля 2024 года...</p>
+            <button onclick="showFullNews(6)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">8 июня 2024</p>
+            <h2 class="news-title">Внедрение новой системы безопасности</h2>
+            <p class="news-content">ЗИРААТ БАНК (МОСКВА) АО вводит инновационную систему безопасности для защиты данных клиентов...</p>
+            <button onclick="showFullNews(7)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">10 июня 2024</p>
+            <h2 class="news-title">Запуск программы лояльности для клиентов</h2>
+            <p class="news-content">Банк представляет новую программу лояльности, которая позволит клиентам получать дополнительные бонусы и привилегии...</p>
+            <button onclick="showFullNews(8)">Показать</button>
+        </div>
+        
+        <div class="news-card">
+            <p class="news-date">13 июня 2024</p>
+            <h2 class="news-title">Организация благотворительного мероприятия</h2>
+            <p class="news-content">ЗИРААТ БАНК (МОСКВА) АО проводит благотворительное мероприятие в поддержку нуждающихся семей...</p>
+            <button onclick="showFullNews(9)">Показать</button>
+        </div>
+
+        <div class="news-card">
+            <p class="news-date">15 июня 2024</p>
+            <h2 class="news-title">ЗИРААТ БАНК (МОСКВА) АО запускает инвестиционный фонд</h2>
+            <p class="news-content">Банк анонсирует запуск нового инвестиционного фонда, предлагая клиентам новые возможности для инвестирования...</p>
+            <button onclick="showFullNews(10)">Показать</button>
+        </div>
+        
+    </div>
+    
+    <div id="full-news-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="full-news-title"></h2>
+            <p id="full-news-text"></p>
+        </div>
+    </div>
+    <script>
+        function showFullNews(newsId) {
+            const fullNewsModal = document.getElementById('full-news-modal');
+            const fullNewsTitle = document.getElementById('full-news-title');
+            const fullNewsText = document.getElementById('full-news-text');
+
+            // Здесь можно добавить логику для отображения полной новости по newsId
+            // В данном примере, показываем статический текст
+            fullNewsTitle.innerText = "Открытие нового отделения в центре Москвы";
+            fullNewsText.innerText = "Мы рады сообщить, что сегодня открывается новое отделение ЗИРААТ БАНК (МОСКВА) АО в самом центре Москвы. Приглашаем всех посетить нас и воспользоваться нашими услугами.";
+
+            fullNewsModal.style.display = "block";
+        }
+
+        function closeModal() {
+            const fullNewsModal = document.getElementById('full-news-modal');
+            fullNewsModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const fullNewsModal = document.getElementById('full-news-modal');
+            if (event.target == fullNewsModal) {
+                fullNewsModal.style.display = "none";
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+
+    
+    <footer>
+        &copy; 2024 - T.C. Ziraat Bankası A.Ş.
+    </footer>
+</body>
+</html>
