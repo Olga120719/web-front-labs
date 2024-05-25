@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс валют - ЗИРААТ БАНК (МОСКВА) АО</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ziraat Bank > Курс валют</h1>
+    </header>
+    <div class="menu">
+        <ul>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="currency.html">Курс валют</a></li>
+            <li><a href="contact.html">Контактные данные</a></li>
+            <li><a href="video.html">Видео</a></li>
+        </ul>
+    </div>
+    
+    <div class="currency-converter" style="padding-left: 220px">
+        <h2>Калькулятор валют</h2>
+        
+        <label for="currency">Выберите валюту:</label>
+        <select id="currency">
+            <option value="BYN">BYN</option>
+            <option value="RUB">RUB</option>
+        </select>
+        
+        <label for="amount">Сумма:</label>
+        <input type="number" id="amount" min="1">
+
+        <label for="toCurrency">В валюту:</label>
+        <select id="toCurrency">
+            <option value="RUB">RUB</option>
+            <option value="BYN">BYN</option>
+        </select>
+
+        <button id="convertButton">Конвертировать</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        const convertButton = document.getElementById('convertButton');
+        const amountInput = document.getElementById('amount');
+        const resultText = document.getElementById('result');
+
+        const apiUrl = 'https://www.cbr-xml-daily.ru/daily_json.js';
+
+        convertButton.addEventListener('click', async () => {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        const rubAmount = parseFloat(amountInput.value);
+        const currency = document.getElementById('currency').value;
+
+        let rate;
+        if (currency === 'BYN') {
+            rate = data.Valute.BYN.Value;
+            const result = rubAmount / rate;
+            resultText.textContent = `${rubAmount} RUB = ${result.toFixed(2)} BYN`;
+        } else if (currency === 'RUB') {
+            rate = data.Valute.BYN.Value; // Используйте нужный курс для RUB
+            const result = rubAmount * rate;
+            resultText.textContent = `${rubAmount} BYN = ${result.toFixed(2)} RUB`;
+        } else {
+            resultText.textContent = 'Выберите валюту для конвертации.';
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        resultText.textContent = 'Ошибка при получении данных. Попробуйте позже.';
+    }
+});
+    </script>
+    <footer>
+        &copy; 2024 - T.C. Ziraat Bankası A.Ş.
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
