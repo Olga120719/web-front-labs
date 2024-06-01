@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цой Ольга Дмитриевна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <script>
+        function addBlocks() {
+            let blocks = document.getElementById('blocks');
+            for(let i = 0; i < 10; i++) {
+                let block = document.createElement('div');
+                block.innerHTML = 'Блок №' + (i+1) + ': ' + (2 * i**2);
+
+                blocks.appendChild(block);
+            }
+        }
+
+        function addTransparentBlocks() {
+            let tblocks = document.getElementById("transparent-blocks");
+            for(let i = 0; i < 10; i++) {
+                let tblock = document.createElement('div');
+                tblock.innerHTML = 'Блок №' + (i+1);
+                tblock.style.opacity = i/10;
+
+                tblocks.appendChild(tblock);
+            }
+        }
+
+        function showExchange () {
+            let exchange = [70.5174, 70.1227, 70.0414, 70.3847, 70.5991,
+                            70.8924, 71.5763, 72.8949, 72.7923, 73.6307];
+            let table = document.getElementById("dollar-exchange");
+            for(let i = 0; i < exchange.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.innerHTML = exchange[i];
+                tr.appendChild(td);
+                table.appendChild(tr);
+            }
+
+            let sum = 0;
+            for(let i = 0; i < exchange.length; i++) {
+                sum = sum + exchange[i];
+            }
+            let average = sum / exchange.length;
+            document.getElementById('detail').innerHTML = 'Среднее значение: ' + average;
+        }
+
+        function greenRed() {
+            let circles = document.getElementById('circles');
+            let currentNum = document.getElementById('inpNum');
+            let numCircles = parseInt(currentNum.value);
+            
+            for (let i = numCircles; i > 0; i--) {
+                let newCircles = document.createElement('div');
+                newCircles.innerHTML = (i)
+                
+                if (i % 2 == 0) {
+                    newCircles.style.backgroundColor = 'green'; 
+                }
+                else {
+                    newCircles.style.backgroundColor = 'red'
+                }
+                newCircles.style.height = '50px';
+                newCircles.style.width = '50px';
+                newCircles.style.margin = '5px';
+                newCircles.style.borderRadius = '50%';
+                newCircles.style.display = 'inline-block';
+                newCircles.style.textAlign = 'center';
+                newCircles.style.lineHeight = '50px';
+
+                circles.appendChild(newCircles);
+            }
+        }
+
+        function tableUmno() {
+            let stud = 28;
+            let newTable = document.getElementById('tableOfUmno');
+
+            for (let i = 13; i<=33; i++) {
+                let newTr = document.createElement('tr');
+                let newTd = document.createElement('td');
+                newTd.innerHTML = stud + '*' + i + '=' + (stud * i)
+                newTr.appendChild(newTd);
+                newTable.appendChild(newTr)
+            }
+        }
+
+        function showCurs() {
+
+            let curs = [377.5, 270, 376.5, 250.9, 297, 356.9, 371.2, 476, 499.4, 562.9, 653.7, 565.3];
+            let date = ['01.06.2022', '01.07.2022', '01.08.2022', '01.09.2022', '01.10.2022', '01.11.2022', '01.12.2022', '01.01.2023',
+            '01.02.2023', '01.03.2023', '01.04.2023', '01.05.2023'];
+            let cursTable = document.getElementById('TableCurs');
+
+            for (let i = 0; i<curs.length; i++) {
+                let tr = document.createElement('tr');
+                let dateTd = document.createElement('td');
+                let cursTd = document.createElement('td');
+                let newTd = document.createElement('td');
+                dateTd.innerHTML = date[i];
+                cursTd.innerHTML = curs[i];
+                newTd.innerHTML = (curs[i] - curs[i-1]).toFixed(2);
+                tr.appendChild(dateTd);
+                tr.appendChild(cursTd);
+                tr.appendChild(newTd);
+                cursTable.appendChild(tr);
+            }
+
+            let sum = 0;
+            for (let i = 0; i<curs.length; i++) {
+                sum = sum + curs[i];
+            }
+            let average = sum / curs.length;
+            document.getElementById('middlenum').innerHTML = 'Среднее значение: ' + average;
+
+            let maxCurs = Math.max(...curs);
+            let minCurs = Math.min(...curs);
+            document.getElementById('max').innerHTML = 'Максимльное значение: ' + maxCurs;
+            document.getElementById('min').innerHTML = 'Минимальное значение: ' + minCurs;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main style="margin-bottom:75px;">
+        <button onclick="addBlocks()">Создать блоки</button>
+        <div id="blocks"></div>
+
+        <button onclick="showExchange()">Курс доллара</button>
+        <table border="1" id="dollar-exchange"></table>
+        <div id="detail"></div>
+
+        <button onclick="addTransparentBlocks()">Создать полупрозрачные блоки</button>
+        <div id="transparent-blocks"></div>
+
+        <div>
+
+            <input id='inpNum' type='number' value='5' placeholder='введите число кругов'>
+            <button onclick="greenRed()">Красное/зеленое</button>
+            <div id="circles"></div>
+
+        </div>
+
+        <div id="tableumn">
+
+            <button id="currentTable" onclick="tableUmno()">Таблица умножения</button>
+            <table border="1" id="tableOfUmno"></table>
+
+        </div>
+
+        <div id="companycurs">
+
+            <button id="curs" onclick="showCurs()">Курс акций Полиметалл</button>
+            <table border="1" id="TableCurs"></table>
+            <div id="middlenum"></div>
+            <div id="max"></div>
+            <div id="min"></div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
