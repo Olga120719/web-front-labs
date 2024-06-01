@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+        <title>Цой Ольга Дмитриевна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-32x32.png">
+        <link rel="icon" href="favicon-16x16.png">
+</head>
+<body>
+    <header>
+        <h1>НГТУ, ФБ, Лабораторная работа №6</h1>
+    </header>
+    <h1>Корзина товаров</h1>
+    <label for="balance">Мой баланс:</label>
+    <input type="number" id="balance" value="0" min="0">
+    <br><br>
+    <label for="item1">Товар 1:</label>
+    <input type="number" id="item1" value="0" min="0">
+    <span>Цена: 100</span>
+    <br>
+    <label for="item2">Товар 2:</label>
+    <input type="number" id="item2" value="0" min="0">
+    <span>Цена: 200</span>
+    <br>
+    <label for="item3">Товар 3:</label>
+    <input type="number" id="item3" value="0" min="0">
+    <span>Цена: 300</span>
+    <br>
+    <label for="item4">Товар 4:</label>
+    <input type="number" id="item4" value="0" min="0">
+    <span>Цена: 400</span>
+    <br>
+    <label for="item5">Товар 5:</label>
+    <input type="number" id="item5" value="0" min="0">
+    <span>Цена: 500</span>
+    <br>
+    <label for="item6">Товар 6:</label>
+    <input type="number" id="item6" value="0" min="0">
+    <span>Цена: 600</span>
+    <br>
+    <label for="item7">Товар 7:</label>
+    <input type="number" id="item7" value="0" min="0">
+    <span>Цена: 700</span>
+    <br><br>
+    <button id="checkout">ОК</button>
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        const checkoutBtn = document.getElementById('checkout');
+        const resultDiv = document.getElementById('result');
+
+        checkoutBtn.addEventListener('click', checkout);
+
+        function checkout() {
+            const balance = parseFloat(document.getElementById('balance').value);
+            const items = [
+                { id: 'item1', price: 100 },
+                { id: 'item2', price: 200 },
+                { id: 'item3', price: 300 },
+                { id: 'item4', price: 400 },
+                { id: 'item5', price: 500 },
+                { id: 'item6', price: 600 },
+                { id: 'item7', price: 700 }
+            ];
+
+            let totalCost = 0;
+            let allEmpty = true;
+
+            for (const item of items) {
+                const quantity = parseFloat(document.getElementById(item.id).value);
+
+                if (isNaN(quantity)) {
+                    continue;
+                }
+
+                allEmpty = false;
+
+                if (quantity < 0) {
+                    resultDiv.innerHTML = 'Ошибка: Количество товара не может быть отрицательным.';
+                    return;
+                }
+
+                totalCost += quantity * item.price;
+            }
+
+            if (allEmpty) {
+                resultDiv.innerHTML = 'Ошибка: Выберите хотя бы один товар.';
+            } else if (totalCost > balance) {
+                resultDiv.innerHTML = `Ошибка: Недостаточно средств на балансе. Общая сумма: ${totalCost}, ваш баланс: ${balance}.`;
+            } else {
+                resultDiv.innerHTML = `Успешное оформление заказа. Общая сумма: ${totalCost}.`;
+            }
+        }
+    </script>
+      <footer>
+        &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
