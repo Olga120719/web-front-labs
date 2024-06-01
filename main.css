@@ -84,3 +84,7 @@ div.Menu:hover {
     box-shadow: 0 0 15px rgb(41, 23, 203);
     background-color: palevioletred;
 }
+#rules {
+    text-align: center;
+    margin-top: 20px;
+}
