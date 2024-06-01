@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цой Ольга Дмитриевна. Лабораторная 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="lab8.js"></script>
+<style>
+    .date {
+        color: maroon;
+        padding: 10px;
+        text-align: justify;
+        text-indent: 20px;
+     }
+    .x {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .c {
+        background-color: palevioletred;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(70, 35, 115, 0.7);
+    }
+    </style>
+</head>
+
+<body onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <main>
+        <b><div class="date" id="current-dateru"></div></b>
+        <b><div class="date" id="current-dateen"></div></b>
+        <b><div class="date" id="current-datear"></div></b>
+        <b><div class="date" id="current-dateel"></div></b>
+        <b><div class="date" id="current-dateno"></div></b>
+        <b><div class="date" id="current-datezh"></div></b>
+
+        <div class="c">
+        <div class="x">
+            <b><label class="date">Дата рождения: <input type="date"></label></b>
+        </div>
+        <div>
+            <button onclick="showDaysCount()">Показать число дней</button>
+            <button onclick="clean()">Очистить</button>
+        </div>
+        <b><div class="date" id="birthday"></div></b>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Цой Ольга, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
